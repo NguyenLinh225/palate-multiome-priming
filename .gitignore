@@ -1,0 +1,17 @@
+data/
+*.h5
+*.h5ad
+*.tsv.gz
+*.tbi
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+*.pyc
+.ruff_cache/
+build/
+dist/
+.coverage
+htmlcov/
+.DS_Store
