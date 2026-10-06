@@ -71,7 +71,7 @@ That step needs the 12.3 GB of fragment files and produces a ~404M-nonzero matri
 (~3.2 GB in memory before prevalence filtering). It is a compute job, not a checkbox —
 budget for it.
 
-fig1_day1_feasibility.png
+![Feasibility audit](fig1_day1_feasibility.png)
 
 *Per-cell QC against the published thresholds (a), cells retained per library (b),
 per-library peak counts against the paper's aggregate set (c), and marker dynamics across
@@ -98,7 +98,7 @@ cluster.
 **99% of E12.5 mesenchyme carries no A/P signature**, and patterning appears from E13.5 —
 exactly the window the hypothesis needs.
 
-fig2_rna_umap.png
+![RNA UMAP](fig2_rna_umap.png)
 
 **One departure from the published annotation:** no chondrocyte cluster could be called.
 *Acan* is rarely detected: 1.2% of all cells are positive, and no cluster exceeds 7.05%
@@ -141,7 +141,7 @@ controls make the headline number interpretable, not just larger.
 | naive (no stage-axis removal, unbalanced) | 76.8% | 12.1% |
 | with controls | **82.3%** | **0.0%** |
 
-fig3_story.png
+![The pilot result](fig3_story.png)
 
 **Why this matters.** "Unpatterned" meant *no marker signature*, not *no information*. The
 transcriptome already predicts eventual fate, just not through the four genes used to
