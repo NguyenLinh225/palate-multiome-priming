@@ -37,7 +37,7 @@ cross-modality cell matching is required — and because it brackets the transit
 
 ## What was found
 
-### 1. The data is usable, but the peak sets are not comparable
+### 1. The data is usable, peaks set were compared
 
 All nine libraries carry both a filtered feature-barcode matrix and an ATAC fragment file
 (cellranger-arc 2.0.0), so no re-alignment from FASTQ is needed. Applying the authors' own
