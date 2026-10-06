@@ -1,3 +1,0 @@
-train_set,apply_to,features,arm,n,mean_p,sd,frac_confident
-"E14.5 Anterior vs Posterior (n=4259, AUROC 0.999)",E12.5 Early/unpatterned mesenchyme,RNA principal components,real labels,10036,0.802,0.312,0.823
-"E14.5 Anterior vs Posterior (n=4259, AUROC 0.999)",E12.5 Early/unpatterned mesenchyme,RNA principal components,permuted labels,10036,0.501,0.088,0.0
