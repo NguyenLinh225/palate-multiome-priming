@@ -144,29 +144,6 @@ The claim has to become: **does chromatin add predictive power over RNA, at matc
 count and sparsity?** That is a harder test, but it has a clean null and a negative result
 stays interpretable.
 
----
-
-## Status
-
-| | |
-|---|---|
-| Feasibility audit | done |
-| RNA QC, embedding, annotation | done |
-| RNA baseline for the fate-prediction test | done |
-| Consensus ATAC matrix (12.3 GB fragments) | **not started** |
-| ATAC fate prediction — the actual comparison | **not started** |
-| Peak–gene linkage, motif activity | not started |
-| Robustness (seeds, subsampling, leave-one-timepoint-out) | not started |
-
-**Known limitations of what exists.** TSS-enrichment and nucleosome-signal QC are not
-applied (they need the fragment files), so cell counts run ~5% above the published
-post-QC figure. Cluster labels are marker-derived, not transferred from the authors'
-annotation. There is no batch integration beyond per-library HVG selection. The pilot uses
-RNA principal components trained at E14.5 and applied at E12.5, so some of the 82% may
-reflect lineage continuity rather than early fate commitment — the controls rule out the
-cheapest explanations, not all of them.
-
----
 
 ## Installation
 
