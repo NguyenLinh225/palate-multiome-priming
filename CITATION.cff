@@ -7,7 +7,7 @@ type: software
 authors:
   - family-names: "Nguyen"
     given-names: "Thi Thuy Linh"
-repository-code: "https://github.com/Movingcastlee220595/palate-multiome-priming"
+repository-code: "https://github.com/NguyenLinh225/palate-multiome-priming"
 license: MIT
 version: 0.1.0
 references:
