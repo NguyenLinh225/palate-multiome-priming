@@ -11,7 +11,7 @@
 > I didn't expect: E12.5 progenitors with no A/P marker signature are already predictable from
 > RNA alone (82.3% confident calls vs 0.0% under a label-permutation null). The question
 > therefore has to become whether chromatin adds predictive power *over* RNA.
-> **[Start with the walkthrough notebook →](notebooks/walkthrough.ipynb)**
+> **[Start with the walkthrough notebook →](walkthrough.ipynb)**
 
 A reanalysis of [GSE218576](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE218576) —
 single-cell multiome (paired RNA + ATAC) of mouse secondary palate at E12.5, E13.5, E14.0
@@ -71,7 +71,7 @@ That step needs the 12.3 GB of fragment files and produces a ~404M-nonzero matri
 (~3.2 GB in memory before prevalence filtering). It is a compute job, not a checkbox —
 budget for it.
 
-![Feasibility audit](figures/fig1_day1_feasibility.png)
+fig1_day1_feasibility.png
 
 *Per-cell QC against the published thresholds (a), cells retained per library (b),
 per-library peak counts against the paper's aggregate set (c), and marker dynamics across
@@ -98,7 +98,7 @@ cluster.
 **99% of E12.5 mesenchyme carries no A/P signature**, and patterning appears from E13.5 —
 exactly the window the hypothesis needs.
 
-![RNA UMAP](figures/fig2_rna_umap.png)
+fig2_rna_umap.png
 
 **One departure from the published annotation:** no chondrocyte cluster could be called.
 *Acan* is rarely detected: 1.2% of all cells are positive, and no cluster exceeds 7.05%
@@ -141,7 +141,7 @@ controls make the headline number interpretable, not just larger.
 | naive (no stage-axis removal, unbalanced) | 76.8% | 12.1% |
 | with controls | **82.3%** | **0.0%** |
 
-![The pilot result](figures/fig3_story.png)
+fig3_story.png
 
 **Why this matters.** "Unpatterned" meant *no marker signature*, not *no information*. The
 transcriptome already predicts eventual fate, just not through the four genes used to
