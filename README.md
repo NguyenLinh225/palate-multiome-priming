@@ -5,11 +5,6 @@
 
 **Is anterior/posterior positional fate primed in chromatin before it appears in transcription?**
 
-> **TL;DR.** The deposited ATAC matrices can't be combined as they stand (only 0.08% of peak IDs
-> recur across libraries), so I built a consensus peak set. The RNA baseline turned up something
-> I didn't expect: E12.5 progenitors with no A/P marker signature are already predictable from
-> RNA alone (82.3% confident calls vs 0.0% under a label-permutation null). The question
-> therefore has to become whether chromatin adds predictive power *over* RNA.
 > **[Start with the walkthrough notebook →](walkthrough.ipynb)**
 
 A reanalysis of [GSE218576](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE218576) —
