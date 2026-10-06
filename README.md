@@ -57,13 +57,11 @@ The problem is the ATAC feature space. Each library was peak-called independentl
 Of a 895,797-ID union, **728 IDs (0.081%) recur in any other library**, and the maximum
 pairwise Jaccard index is 0.00025. The 729 coincidental matches are cellranger
 independently calling identical coordinates — what you would expect by chance, not a shared
-vocabulary. **The matrices cannot be concatenated as deposited.** All 38k cells must be
+vocabulary. All 38k cells must be
 re-quantified against a consensus set, which this repo builds by union-merging the
 per-library intervals into **196,662 regions** (median width 982 bp, 200 Mb, 7.3% of mm10).
 
-That step needs the 12.3 GB of fragment files and produces a ~404M-nonzero matrix
-(~3.2 GB in memory before prevalence filtering). It is a compute job, not a checkbox —
-budget for it.
+
 
 ![Feasibility audit](fig1_day1_feasibility.png)
 
