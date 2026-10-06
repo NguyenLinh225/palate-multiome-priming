@@ -1,0 +1,105 @@
+# All paths, thresholds and seeds. No values are hardcoded in src/.
+seed: 1234
+
+data:
+  accession: GSE218576
+  geo_suppl_url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE218nnn/GSE218576/suppl/
+  raw_dir: data/raw
+  processed_dir: data/processed
+  genome: mm10
+
+samples:
+  - {id: B6E12-5-1, stage: E12.5}
+  - {id: B6E12-5-2, stage: E12.5}
+  - {id: B6E13-5-1, stage: E13.5}
+  - {id: B6E13-5-2, stage: E13.5}
+  - {id: B6E13-5-3, stage: E13.5}
+  - {id: B6E14-0-1, stage: E14.0}
+  - {id: B6E14-0-2, stage: E14.0}
+  - {id: B6E14-5-1, stage: E14.5}
+  - {id: B6E14-5-2, stage: E14.5}
+
+stage_order: [E12.5, E13.5, E14.0, E14.5]
+
+# Thresholds transcribed from Yan et al. Figure_S1.R (dashed reference lines).
+# tss_enrichment and nucleosome_signal require the fragment files and are applied
+# in the ATAC stage, not the RNA stage.
+qc:
+  max_count_rna: 100000
+  max_feature_rna: 7500
+  max_percent_mt: 20
+  min_count_atac: 200
+  max_count_atac: 100000
+  min_tss_enrichment: 1.0
+  max_nucleosome_signal: 2.0
+  mt_prefix: "mt-"
+
+rna:
+  target_sum: 10000
+  n_top_genes: 2500
+  hvg_batch_key: sample
+  scale_max_value: 10
+  n_pcs: 50
+  neighbors_k: 30
+  neighbors_n_pcs: 40
+  umap_min_dist: 0.3
+  leiden_resolution: 1.0
+
+# Lineage calls use absolute mean log-normalized expression, not cross-type
+# z-scores: z-scoring across cell types mislabels clusters whose markers are
+# all low but whose relative ranking is high.
+markers:
+  lineage:
+    Epithelial:  [Epcam, Cdh1, Krt14]
+    Immune:      [Ptprc, Cd68]
+    Endothelial: [Pecam1, Cdh5]
+    Erythroid:   [Hba-a1, Hbb-bs]
+    Neural/glia: [Sox10, Plp1, Tubb3]
+    Myocyte:     [Myod1, Myog, Des]
+    Mesenchymal: [Prrx1, Twist1, Col1a1, Pdgfra]
+  mesenchymal_subtype:
+    Anterior:     [Shox2, Msx1]
+    Posterior:    [Meox2, Tbx22]
+    Osteogenic:   [Runx2, Sp7, Ibsp, Alpl]
+    Chondrogenic: [Sox9, Acan, Col2a1]
+
+# Minimum mean log-norm expression for a cluster to be called that lineage.
+lineage_thresholds:
+  Erythroid: 1.5
+  Endothelial: 1.0
+  Immune: 0.8
+  Neural/glia: 0.5
+  Myocyte: 0.5
+  Epithelial: 0.7
+  Mesenchymal: 1.2
+subtype_thresholds:
+  osteogenic_min: 1.0
+  axis_min: 0.8
+  axis_fold_over_opposite: 2.0
+  chondrogenic_min: 0.4
+  # A chondrocyte call additionally requires Acan detection above this fraction
+  # of cells; in GSE218576 no cluster reaches it, so no chondrocytes are called.
+  chondrogenic_min_acan_frac: 0.10
+
+atac:
+  # Peak IDs are library-specific (0.08% recur), so a consensus interval set is
+  # built by merging all per-library peaks before re-quantification.
+  merge_peaks: true
+  min_cell_fraction: 0.01
+  lsi_n_components: 50
+  lsi_drop_first: true   # component 1 tracks sequencing depth
+
+priming:
+  train_stage: E14.5
+  apply_stage: E12.5
+  apply_celltype: Early/unpatterned mesenchyme
+  classes: [Anterior, Posterior]
+  class_weight: balanced
+  remove_stage_axis: true
+  # The stage axis is estimated within the mesenchymal lineage only: fitting it
+  # across all cells would mostly capture epithelial-vs-mesenchymal variation.
+  stage_axis_celltypes: [Anterior, Posterior, Osteogenic, Early/unpatterned mesenchyme]
+  confident_low: 0.2
+  confident_high: 0.8
+  n_permutations: 100
+  cv_folds: 5
