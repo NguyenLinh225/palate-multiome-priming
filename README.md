@@ -1,6 +1,5 @@
 # Chromatin priming of positional fate in the mouse secondary palate
 
-[![tests](https://github.com/Movingcastlee220595/palate-multiome-priming/actions/workflows/ci.yml/badge.svg)](https://github.com/Movingcastlee220595/palate-multiome-priming/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
@@ -179,7 +178,6 @@ cheapest explanations, not all of them.
 ## Installation
 
 ```bash
-git clone https://github.com/Movingcastlee220595/palate-multiome-priming.git
 cd palate-multiome-priming
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev,workflow]"     # drop ,workflow if you only want to run the tests
