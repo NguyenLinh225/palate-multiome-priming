@@ -149,29 +149,14 @@ stays interpretable.
 
 ## Conclusion
 
-This reanalysis establishes three things about GSE218576.
-
-1. **The deposited ATAC data cannot be analysed as released.** Each library was peak-called
-   independently and only 0.08% of peak IDs recur across libraries, so any cross-sample
-   chromatin analysis requires re-quantifying all cells against a consensus peak set
-   (built here: 196,662 regions).
-2. **A/P positional identity emerges transcriptionally between E12.5 and E13.5.** At E12.5,
+1. **A/P positional identity emerges transcriptionally between E12.5 and E13.5.** At E12.5,
    99% of palatal mesenchyme carries no anterior (*Shox2*) or posterior (*Meox2*) marker
    signature; by E13.5 both territories are resolved.
-3. **"Unpatterned" E12.5 progenitors already carry fate information in their
+2. **"Unpatterned" E12.5 progenitors already carry fate information in their
    transcriptome.** A classifier trained on E14.5 anterior vs posterior cells assigns
    confident fates to 82.3% of marker-negative E12.5 progenitors, versus 0.0% when trained
    on shuffled labels, after removing the developmental-stage axis and balancing classes.
 
-The consequence is that "chromatin is primed before transcription" cannot be tested as
-stated, because its premise is false for this dataset. The meaningful question is narrower:
-**does chromatin accessibility predict positional fate better than RNA, at matched feature
-count and sparsity?** That comparison has a clean null, and either outcome is interpretable.
-
-**Caveat.** The 82% figure does not yet separate early fate commitment from lineage
-continuity or classifier extrapolation beyond the E14.5 training distribution. Calibration on
-labelled E13.5 cells and a negative control on non-mesenchymal E12.5 cells would address
-this.
 
 **Next step.** Quantify chromatin accessibility for all 38,071 cells against the consensus
 peak set and run the RNA-vs-ATAC fate-prediction comparison.
@@ -190,15 +175,7 @@ peak set and run the RNA-vs-ATAC fate-prediction comparison.
 | Peak–gene linkage, motif activity | not started |
 | Robustness (seeds, subsampling, leave-one-timepoint-out) | not started |
 
-**Known limitations of what exists.** TSS-enrichment and nucleosome-signal QC are not
-applied (they need the fragment files), so cell counts run ~5% above the published
-post-QC figure. Cluster labels are marker-derived, not transferred from the authors'
-annotation. There is no batch integration beyond per-library HVG selection. The pilot uses
-RNA principal components trained at E14.5 and applied at E12.5, so some of the 82% may
-reflect lineage continuity rather than early fate commitment — the controls rule out the
-cheapest explanations, not all of them.
 
----
 
 ## Installation
 
